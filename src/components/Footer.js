@@ -47,9 +47,8 @@ const Footer = () => {
           <a href='https://www.instagram.com/aynherrajes/' target="_blank"><i class="fab fa-instagram"></i></a>
           <a href='https://m.facebook.com/herrajesayn/' target="_blank"><i class="fab fa-facebook"></i></a>
         </div>
-        <P>© 2022 AyN herrajes todos los dereches reservados   Pagina realizada por Maximiliano cabral programador front-end</P>
+        <P>© 2022 AyN herrajes todos los dereches reservados   Pagina realizada por Maximiliano Cabral programador front-end</P>
       </Div>
-      
     </FooterDiv>
   )
 }
