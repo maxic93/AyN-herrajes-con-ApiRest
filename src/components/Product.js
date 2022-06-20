@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from "styled-components"
+import { ProductContext } from "../context/CarritoProduct"
 
 const Container = styled.div`
 width: 400px;
@@ -48,14 +49,30 @@ const Button = styled.button`
         background: #17770E;
     }
 `
-const handleClick = e => {
-  alert("diste click")
-}
+
 
 const Product = ({name, img, price, cantidad}) => {
-    console.log(img)
+    
+  const {setCarrito} = useContext(ProductContext)
+
+  const handleClick = e => {
+
+    const containerProduct = e.target.closest(".container")
+    let name = containerProduct.firstElementChild.textContent
+    let img = containerProduct.firstElementChild.nextSibling.firstElementChild.src
+    let price = containerProduct.firstElementChild.nextSibling.nextSibling.firstElementChild.textContent
+    let product = [{
+     name: name,
+     img: img,
+     price: price,
+    }]
+    setCarrito(product)
+    
+    
+  }
+
   return (
-    <Container>
+    <Container className='container'>
       <h2>{name}</h2>
       <Div>
         <img src={img} alt={name}/>  

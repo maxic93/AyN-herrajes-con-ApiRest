@@ -1,10 +1,7 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from "styled-components"
 import "./nav.css"
-
-
 
 const Nav = styled.nav`
 display: flex;
@@ -32,21 +29,19 @@ const NavBar = () => {
 
   const [showNavBar, setShowNavBar] = useState(false)
 
-useEffect(()=> {
-  window.addEventListener("scroll", ()=>{
-    if(window.scrollY > 120){
-      setShowNavBar(true)
-    }else {
-      setShowNavBar(false)
-    }
-    return window.removeEventListener("scroll")
-  })
-},[])
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if(window.scrollY > 130){
+        setShowNavBar(true)
+      }else {
+        setShowNavBar(false)
+      }
+    })
+  },[])
 
   return (
     <Nav className={showNavBar && "nav_fixed"}>
           <LinkStyle  to="/">Inicio</LinkStyle>
-          <LinkStyle  to="catalogo">Catalogo</LinkStyle>
           <LinkStyle  to="/contacto">Contacto</LinkStyle> 
           <LinkStyle  to="/carrito"><i className="fa-solid fa-cart-shopping"></i>Carrito</LinkStyle> 
     </Nav>
