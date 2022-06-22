@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React  from 'react'
 import styled from "styled-components"
-import { ProductContext } from '../context/CarritoProduct'
+
 
 const Section = styled.section`
   width: 100%;
@@ -26,7 +26,7 @@ const Info = styled.div`
 
 const Carrito = () => {
 
-  const {carrito} = useContext(ProductContext);
+  
   
 
   return (
@@ -41,9 +41,6 @@ const Carrito = () => {
            <h3>Subtotal</h3>
           </div>
         </Info>
-        {carrito.map(item => {
-          return <h2 key={item.name}>{item.name}</h2>
-        })}
       </Container>
     </Section>
   )

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from "styled-components"
-import { ProductContext } from "../context/CarritoProduct"
+import { CarritoContext } from '../context/CarritoContext'
 
 const Container = styled.div`
 width: 400px;
@@ -53,7 +53,7 @@ const Button = styled.button`
 
 const Product = ({name, img, price, cantidad}) => {
     
-  const {setCarrito} = useContext(ProductContext)
+  const {setCarritoItem} = useContext(CarritoContext)
 
   const handleClick = e => {
 
@@ -61,14 +61,12 @@ const Product = ({name, img, price, cantidad}) => {
     let name = containerProduct.firstElementChild.textContent
     let img = containerProduct.firstElementChild.nextSibling.firstElementChild.src
     let price = containerProduct.firstElementChild.nextSibling.nextSibling.firstElementChild.textContent
-    let product = [{
+    let product = {
      name: name,
      img: img,
      price: price,
-    }]
-    setCarrito(product)
-    
-    
+    }
+    setCarritoItem(product)
   }
 
   return (
